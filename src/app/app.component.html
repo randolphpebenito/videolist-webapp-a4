@@ -2,6 +2,17 @@
 <h1>{{ title }}</h1><p>{{ description }} is cool </p>
 <h1>{{ title }}</h1><p>LATITUDE - {{ lat }} | LONGITUDE - {{ lng }} </p>
 
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-primary" id="floating-panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">Panel 1</h3>
+				<span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+			</div>
+			<div class="panel-body">Panel content</div>
+		</div>
+	</div>
+</div>
 <agm-map 
   [latitude]="lat" 
   [longitude]="lng" 

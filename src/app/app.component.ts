@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { BarChartColors, PieChartColors } from './chart.settings';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,56 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+	barChartColors = BarChartColors;
+	 public areaChartData:Array<any> = [
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A', tension: 0},
+  ];
+  public areaChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public areaChartOptions:any = {
+    responsive: true,
+		scales: {
+      xAxes: [{
+        gridLines: {
+          drawOnChartArea: false
+        }
+      }]
+    }
+  };
+  public areaChartColors:Array<any> = [
+    { // grey
+			backgroundColor: 'rgba(225,10,24,0.2)',
+      borderColor: 'rgba(225,10,24,0.2)',
+      pointBackgroundColor: 'rgba(225,10,24,0.2)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+    },
+  ];
+  public areaChartLegend:boolean = true;
+  public areaChartType:string = 'line';
+
+  // lineChart
+  public lineChartData:Array<any> = [
+    [65, 59, 80, 81, 56, 55, 40],
+    [28, 48, 40, 19, 86, 27, 90]
+  ];
+  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartType:string = 'bar';
+  public pieChartType:string = 'pie';
+ 
+  // Pie
+	pieChartColors = PieChartColors;
+  public pieChartLabels:string[] = ['New Visitor', 'Returning Visitor', ];
+  public pieChartData:number[] = [300, 500];
+ 
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
+ 
+  public chartHovered(e:any):void {
+    console.log(e);
+  }
+  public data: any;
   title = 'app';
   zoom = 10;
   lat: number = 51.678418;
@@ -81,6 +133,8 @@ export class AppComponent {
     }
 
     this.markers.push(newMarker);
+  }
+  ngOnInit(){
   }
 
 

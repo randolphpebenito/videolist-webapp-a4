@@ -65,6 +65,37 @@
 </div>
 
 
+  <div class="col-md-6">
+ 
+    <canvas baseChart
+				[data]="lineChartData"
+                [labels]="lineChartLabels"
+                [chartType]="lineChartType"
+				[colors]="barChartColors"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
+  <div class="col-md-6">
+    <canvas baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+				[colors]="pieChartColors"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+  </div>
+<div>
+    <canvas baseChart 
+                [datasets]="areaChartData"
+                [labels]="areaChartLabels"
+                [options]="areaChartOptions"
+                [colors]="areaChartColors"
+                [legend]="areaChartLegend"
+                [chartType]="areaChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+
+</div>
 
 <router-outlet></router-outlet>
 </div>
